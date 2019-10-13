@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="#F9F3DD"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="170dp"
+        android:layout_marginEnd="18dp"
+        android:background="#F3958B"
+        android:padding="8dp"
+        android:text="Signup Tutorial"
+        android:textAlignment="center"
+        android:textColor="#FFF"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="18dp"
+        android:background="#fff"
+        android:hint="Username"
+        android:nextFocusDown="@+id/password"
+        android:padding="8dp" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="18dp"
+        android:background="#fff"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:nextFocusDown="@+id/passwordCheck"
+        android:padding="8dp" />
+
+    <EditText
+        android:id="@+id/passwordCheck"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="18dp"
+        android:background="#fff"
+        android:hint="Password check"
+        android:inputType="textPassword"
+        android:padding="8dp" />
+
+    <Button
+        android:id="@+id/signUpBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="18dp"
+        android:background="#F0DBC8"
+        android:text="Signup"
+        android:textColor="#645B6E" />
+
+    <TextView
+        android:id="@+id/instruction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="18dp"
+        android:text="이미 아이디가 있으신가요? 로그인"
+        android:textAlignment="center"
+        android:textColor="#645B6E" />
+</LinearLayout>
