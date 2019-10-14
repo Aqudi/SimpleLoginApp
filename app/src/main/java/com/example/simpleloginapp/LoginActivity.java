@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -19,8 +20,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 
 public class LoginActivity extends AppCompatActivity {
@@ -31,10 +36,18 @@ public class LoginActivity extends AppCompatActivity {
     Toast toast;
     View view;
 
+    static JSONObject userArray;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_layout);
+
+        try {
+            userArray = new JSONObject(loadJSONFromAsset());
+        } catch (org.json.JSONException ex) {
+            ex.printStackTrace();
+        }
 
         Button signUpBtn = findViewById(R.id.signUpBtn);
         signUpBtn.setOnClickListener(new View.OnClickListener() {
@@ -48,7 +61,6 @@ public class LoginActivity extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // 동작 코드 삽입
-
                 username = findViewById(R.id.username);
                 password = findViewById(R.id.password);
 
@@ -58,39 +70,24 @@ public class LoginActivity extends AppCompatActivity {
                     password.setError("Password is required!");
                 } else {
                     String errorMSG = "";
-                    JSONArray userArray = null;
-                    try {
-                        userArray = new JSONArray(loadJSONFromAsset());
-                    } catch (org.json.JSONException ex) {
-                        ex.printStackTrace();
-                    }
+
                     // 로그인 검사
                     android.util.Log.d("loginTry", "로그인 시도");
                     if (userArray != null) {
                         String name = username.getText().toString();
                         String pass = password.getText().toString();
-                        android.util.Log.d("loginTry", "시도한 아이디 : " + name + ", 시도한 비밀번호 : " + pass);
                         boolean success = false;
+
                         try {
-                            for (int i = 0; i < userArray.length(); i++) {
-                                JSONObject order = userArray.getJSONObject(i);
-                                android.util.Log.d("loginInfo", order.toString());
-                                if (order.getString("username").equals(name)) {
-                                    android.util.Log.d("loginInfo", "Id 검색 성공!");
-                                    if (order.getString("password").equals(pass)) {
-                                        success = true;
-                                        break;
-                                    } else {
-                                        errorMSG = "비밀번호가 다릅니다.";
-                                        android.util.Log.d("loginFail", errorMSG);
-                                        break;
-                                    }
-                                } else if (i == userArray.length() - 1) {
-                                    errorMSG = "찾는 아이디가 없습니다.";
-                                    android.util.Log.d("loginFail", errorMSG);
-                                }
+                            JSONObject obj = userArray.getJSONObject(name);
+                            if (obj.getString("password").equals(pass)) {
+                                success = true;
+                            } else {
+                                errorMSG = "비밀번호가 다릅니다.";
                             }
+
                         } catch (org.json.JSONException ex) {
+                            errorMSG = "찾는 아이디가 없습니다.";
                             ex.printStackTrace();
                         }
                         if (success) {
@@ -107,12 +104,6 @@ public class LoginActivity extends AppCompatActivity {
                     } else {
                         errorMSG = "로그인 정보 없음";
                         android.util.Log.d("loginFail", "로그인 정보 없음");
-
-                        // 화면을 깜빡이지 않고 Activity를 재시작하는 코드
-                        //finish();
-                        //overridePendingTransition(0, 0);
-                        //startActivity(getIntent());
-                        //overridePendingTransition(0, 0);
                     }
                     if (!errorMSG.equals("")) {
                         InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);

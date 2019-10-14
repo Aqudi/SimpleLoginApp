@@ -1,22 +1,14 @@
-[
-  {
-    "id": 1,
-    "username": "gjdigj1",
+{
+  "gjdigj1": {
     "password": "123412341"
   },
-  {
-    "id": 2,
-    "username": "gjdigj2",
-    "password": "123412342"
+  "gjdigj2": {
+    "password": "12341234"
   },
-  {
-    "id": 3,
-    "username": "gjdigj3",
-    "password": "123412343"
+  "gjdigj3": {
+    "password": "12341234"
   },
-  {
-    "id": 4,
-    "username": "gjdigj4",
-    "password": "123412344"
+  "gjdigj4": {
+    "password": "12341234"
   }
-]
+}
