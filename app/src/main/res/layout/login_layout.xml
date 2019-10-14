@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
-        android:layout_marginTop="170dp"
+        android:layout_marginTop="130dp"
         android:layout_marginEnd="18dp"
         android:background="#F3958B"
         android:padding="8dp"
@@ -61,14 +61,16 @@
         android:text="Login"
         android:textColor="#645B6E" />
 
-    <TextView
-        android:id="@+id/instruction"
+    <Button
+        android:id="@+id/signUpBtn"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/loginBtn"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="34dp"
+        android:background="@android:color/transparent"
         android:text="지금 당장 무료 가입!"
-        android:textColor="#645B6E" />
+        android:textColor="#B8C5E5" />
 
 </RelativeLayout>
