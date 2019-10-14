@@ -1,114 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F9F3DD">
+    android:orientation="vertical"
+    android:weightSum="1.0">
 
-    <TableRow
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:layout_marginTop="100dp"
-        android:gravity="center"
-        android:padding="10dp">
+        android:layout_height="300dp"
+        android:layout_weight="0.5"
+        android:background="#F9F3DD">
 
-        <TextView
+        <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_span="3"
-            android:text="허태정의 검색엔진 모음"
-            android:textSize="25dp"
-            android:textStyle="bold">
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="10dp">
 
-        </TextView>
-    </TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_span="3"
+                android:text="허태정의 검색엔진 모음"
+                android:textSize="25dp"
+                android:textStyle="bold">
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="50dp"
-        android:padding="10dp"
-        android:weightSum="0.9">
+            </TextView>
+        </TableRow>
 
-        <Button
-            android:id="@+id/b1"
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.3"
-            android:background="#2DB400"
-            android:text="naver">
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp"
+            android:padding="10dp"
+            android:weightSum="0.9">
 
-        </Button>
+            <Button
+                android:id="@+id/b1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:background="#2DB400"
+                android:text="naver">
 
-        <Button
-            android:id="@+id/b3"
+            </Button>
+
+            <Button
+                android:id="@+id/b3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:background="#E02727"
+                android:text="google">
+
+            </Button>
+
+            <Button
+                android:id="@+id/b2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:background="#2D9FF8"
+                android:text="daum">
+
+            </Button>
+        </TableRow>
+
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.3"
-            android:background="#E02727"
-            android:text="google">
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:weightSum="0.9">
 
-        </Button>
+            <Button
+                android:id="@+id/b4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:background="#0075BE"
+                android:text="bing">
 
-        <Button
-            android:id="@+id/b2"
+            </Button>
+
+            <Button
+                android:id="@+id/b5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:background="#6F2B90"
+                android:text="Yahoo!">
+
+            </Button>
+
+            <Button
+                android:id="@+id/b6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:background="#DE5833"
+                android:text="DuckDuckgo">
+
+            </Button>
+        </TableRow>
+
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.3"
-            android:background="#2D9FF8"
-            android:text="daum">
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:weightSum="0.9">
 
-        </Button>
-    </TableRow>
+            <ToggleButton
+                android:id="@+id/toggleButton2"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/red_bird"
+                android:text="ToggleButton" />
+        </TableRow>
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="10dp"
-        android:weightSum="0.9">
+    </TableLayout>
 
-        <Button
-            android:id="@+id/b4"
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.3"
+        android:padding="10dp">
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.3"
-            android:background="#0075BE"
-            android:text="bing">
-
-        </Button>
-
-        <Button
-            android:id="@+id/b5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.3"
-            android:background="#6F2B90"
-            android:text="Yahoo!">
-
-        </Button>
-
-        <Button
-            android:id="@+id/b6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.3"
-            android:background="#DE5833"
-            android:text="DuckDuckgo">
-
-        </Button>
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="10dp"
-        android:weightSum="0.9">
-
-        <ToggleButton
-            android:id="@+id/toggleButton2"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/red_bird"
-            android:text="ToggleButton" />
-    </TableRow>
-</TableLayout>
+            android:layout_height="match_parent"
+            android:src="@drawable/peng" />
+    </LinearLayout>
+</LinearLayout>
